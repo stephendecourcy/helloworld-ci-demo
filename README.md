@@ -1,4 +1,4 @@
-helloworld-ci-demo
-==================
+Hello World CLI App
+===================
 
-Sample App to demonstrate Continuous Integration in the FeedHenry Platform.
+This is a sample FeedHenry App for use with the CI section of the FeedHenry (documentation)[http://docs.feedhenry.com].
