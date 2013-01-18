@@ -3,7 +3,7 @@ NODEPATH = `pwd`/cloud:`pwd`/shared
 NODEPATH_COVERAGE = `pwd`/cloud-cov:`pwd`/shared
 REPORTER = dot
 
-all: deps test-cov
+all: clean deps test-cov
 
 test: cloudtest
 test-cov: cloudtest-cov
@@ -27,5 +27,9 @@ cloudtest-cov: cloud-cov
 
 cloud-cov:
 	@jscoverage --no-instrument=node_modules cloud $@
+
+clean: 
+	rm -rf cloud-cov
+	rm -rf node_modules
 
 .PHONY: cloud-cov test cloudtest all deps
