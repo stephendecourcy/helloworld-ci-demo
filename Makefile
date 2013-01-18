@@ -19,6 +19,7 @@ cloudtest:
 		$(CLOUDTESTS)
 
 deps:
+	cd cloud; npm install .
 	npm install . 
 
 cloudtest-cov: cloud-cov
