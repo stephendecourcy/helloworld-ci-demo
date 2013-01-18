@@ -1,16 +1,22 @@
-TESTS = test/*.js
-REPORTER = dot
-
+CLOUDTESTS = cloud_tests/*.js
 NODEPATH = `pwd`/cloud:`pwd`/shared
-test:
+
+all: deps test
+
+test: cloudtest
+
+cloudtest:
 	env NODE_PATH=$(NODEPATH)  ./node_modules/.bin/mocha \
     --ui tdd \
-		--reporter $(REPORTER) \
+		--reporter dot \
     --globals fh-nodeapp \
     --globals fh \
     --globals fhserver \
 		--timeout 20000 \
-		$(TESTS)
+		$(CLOUDTESTS)
+
+deps:
+	npm install . 
 
 test-cov: lib-cov
 	@CONNECT_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
@@ -18,4 +24,4 @@ test-cov: lib-cov
 lib-cov:
 	@jscoverage lib $@
 
-.PHONY: test-cov test
+.PHONY: test-cov test cloudtest all deps
