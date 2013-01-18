@@ -3,7 +3,7 @@ NODEPATH = `pwd`/cloud:`pwd`/shared
 NODEPATH_COVERAGE = `pwd`/cloud-cov:`pwd`/shared
 REPORTER = dot
 
-all: deps test
+all: deps test-cov
 
 test: cloudtest
 test-cov: cloudtest-cov
