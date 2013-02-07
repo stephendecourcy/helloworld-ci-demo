@@ -11,5 +11,12 @@ var util = require('util');
 exports.getConfig = function(params, callback) {
   console.log("In getConfig() call");
   var cfg = require("config.js");
-  return callback(null, {config: cfg.config});
+  return callback(null, {config: "hello"});
 };
+
+exports.getConfig2 = function(params, callback) {
+  console.log("In getConfig() call");
+  var cfg = require("config.js");
+  return callback(null, {config: "world"});
+};
+
